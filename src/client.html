@@ -1,0 +1,62 @@
+<script>
+  const form = document.getElementById('signature-form');
+  const htmlOutput = document.getElementById('html-output');
+  const preview = document.getElementById('signature-preview');
+  const exportStatus = document.getElementById('export-status');
+  const copyButton = document.getElementById('copy-button');
+  const exportButton = document.getElementById('export-button');
+
+  let lastHtml = '';
+
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    setStatus('Generating signature...');
+    google.script.run
+      .withSuccessHandler(function (result) {
+        lastHtml = result.html;
+        htmlOutput.value = result.html;
+        preview.classList.remove('empty-state');
+        preview.innerHTML = result.html;
+        setStatus('Signature generated.');
+      })
+      .withFailureHandler(handleFailure)
+      .generateSignature(getFormData());
+  });
+
+  copyButton.addEventListener('click', async function () {
+    if (!lastHtml) {
+      setStatus('Generate a signature before copying.');
+      return;
+    }
+
+    try {
+      await navigator.clipboard.writeText(lastHtml);
+      setStatus('HTML copied to clipboard.');
+    } catch (error) {
+      setStatus('Clipboard copy failed. Copy from the HTML field manually.');
+    }
+  });
+
+  exportButton.addEventListener('click', function () {
+    setStatus('Exporting HTML file...');
+    google.script.run
+      .withSuccessHandler(function (result) {
+        var message = 'Exported ' + result.fileName + '. Open file: ' + result.fileUrl;
+        setStatus(message);
+      })
+      .withFailureHandler(handleFailure)
+      .exportSignatureHtml(getFormData());
+  });
+
+  function getFormData() {
+    return Object.fromEntries(new FormData(form).entries());
+  }
+
+  function setStatus(message) {
+    exportStatus.textContent = message || '';
+  }
+
+  function handleFailure(error) {
+    setStatus(error && error.message ? error.message : 'Unexpected error.');
+  }
+</script>

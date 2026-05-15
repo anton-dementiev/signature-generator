@@ -1,0 +1,19 @@
+{
+  "name": "signature-generator",
+  "version": "1.0.0",
+  "description": "Clasp-based Google Apps Script scaffold for generating corporate email signatures.",
+  "private": true,
+  "scripts": {
+    "clasp:login": "clasp login",
+    "clasp:push": "clasp push",
+    "clasp:pull": "clasp pull",
+    "clasp:open": "clasp open",
+    "test": "echo \"No tests configured yet\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@google/clasp": "^3.3.0"
+  }
+}
