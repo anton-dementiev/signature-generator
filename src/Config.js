@@ -12,6 +12,7 @@ var COMPANY_CONFIG = Object.freeze({
 var SIGNATURE_FIELDS = Object.freeze([
   { key: "fullName", label: "Full name", required: true },
   { key: "jobTitle", label: "Job title", required: true },
+  { key: "companyName", label: "Company name", required: true },
   { key: "email", label: "Email", required: true },
   { key: "phone", label: "Phone", required: false },
   { key: "linkedinUrl", label: "LinkedIn URL", required: false },

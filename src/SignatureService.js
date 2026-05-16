@@ -1,12 +1,16 @@
 function buildSignatureModel_(formData) {
   var assets = getAssetUrls_();
+  var jobTitle = sanitizeText_(formData.jobTitle);
+  var companyName = sanitizeText_(formData.companyName);
 
   return {
     company: COMPANY_CONFIG,
     assets: assets,
     person: {
       fullName: sanitizeText_(formData.fullName),
-      jobTitle: sanitizeText_(formData.jobTitle),
+      jobTitle: jobTitle,
+      companyName: companyName,
+      titleLine: buildTitleLine_(jobTitle, companyName),
       email: sanitizeText_(formData.email),
       phone: sanitizeText_(formData.phone),
       linkedinUrl: sanitizeUrl_(formData.linkedinUrl),
@@ -36,4 +40,12 @@ function sanitizeUrl_(value) {
   }
 
   return "https://" + normalized;
+}
+
+function buildTitleLine_(jobTitle, companyName) {
+  if (jobTitle && companyName) {
+    return jobTitle + ", " + companyName;
+  }
+
+  return jobTitle || companyName || "";
 }
