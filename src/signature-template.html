@@ -1,4 +1,4 @@
-<table cellpadding="0" cellspacing="0" border="0" style="font-family:Roboto,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:13px;color:#333333;line-height:1.5;">
+<table cellpadding="0" cellspacing="0" border="0" style="font-family:Roboto,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:13px;color:<?= model.company.brandStyle.textSecondary ?>;line-height:1.5;background-color:<?= model.company.brandStyle.surface ?>;">
   <tr>
     <td style="padding:0 16px 0 0;vertical-align:top;">
       <? if (model.assets.logoUrl) { ?>
@@ -11,42 +11,42 @@
       <? } ?>
     </td>
     <td style="vertical-align:top;min-width:280px;">
-      <div style="font-size:15px;font-weight:600;color:#000000;"><?= model.person.fullName ?></div>
+      <div style="font-size:15px;font-weight:600;color:<?= model.company.brandStyle.textPrimary ?>;"><?= model.person.fullName ?></div>
       <? if (model.person.jobTitle || model.person.companyName) { ?>
         <div>
           <? if (model.person.jobTitle) { ?>
-            <span style="color:#333333;"><?= model.person.jobTitle ?></span>
+            <span style="color:<?= model.company.brandStyle.textSecondary ?>;"><?= model.person.jobTitle ?></span>
           <? } ?>
           <? if (model.person.jobTitle && model.person.companyName) { ?>
             <span>, </span>
           <? } ?>
           <? if (model.person.companyName) { ?>
-            <span style="font-size:14px;font-weight:600;color:#000000;"><?= model.person.companyName ?></span>
+            <span style="font-size:14px;font-weight:600;color:<?= model.company.brandStyle.primaryBlue ?>;"><?= model.person.companyName ?></span>
           <? } ?>
         </div>
       <? } ?>
-      <div style="border-top:1px solid #dddddd;margin:8px 0;width:100%;"></div>
-      <div style="color:#666666;font-size:12px;">
-        <? if (model.company.companyWebsiteUrl) { ?>
-          <div>
-            <a href="<?= model.company.companyWebsiteUrl ?>" style="color:#0f5a52;text-decoration:none;"><?= model.company.websiteLabel || model.company.companyWebsiteUrl ?></a>
-          </div>
-        <? } ?>
-        <div><a href="mailto:<?= model.person.email ?>" style="color:#1d1d1b;text-decoration:none;"><?= model.person.email ?></a></div>
+      <? if (model.company.companyWebsiteUrl) { ?>
+        <div style="margin-top:4px;font-size:12px;">
+          <a href="<?= model.company.companyWebsiteUrl ?>" style="color:<?= model.company.brandStyle.primaryBlue ?>;text-decoration:none;"><?= model.company.websiteLabel || model.company.companyWebsiteUrl ?></a>
+        </div>
+      <? } ?>
+      <div style="border-top:1px solid <?= model.company.brandStyle.divider ?>;margin:8px 0;width:100%;"></div>
+      <div style="color:<?= model.company.brandStyle.textMuted ?>;font-size:12px;">
+        <div><a href="mailto:<?= model.person.email ?>" style="color:<?= model.company.brandStyle.textPrimary ?>;text-decoration:none;"><?= model.person.email ?></a></div>
         <? if (model.person.phone) { ?><div><?= model.person.phone ?></div><? } ?>
-        <? if (model.person.linkedinUrl) { ?><div><a href="<?= model.person.linkedinUrl ?>" style="color:#0f5a52;text-decoration:none;">LinkedIn</a></div><? } ?>
+        <? if (model.person.linkedinUrl) { ?><div><a href="<?= model.person.linkedinUrl ?>" style="color:<?= model.company.brandStyle.primaryBlue ?>;text-decoration:none;">LinkedIn</a></div><? } ?>
       </div>
       <? if (model.company.tagline || (model.company.calendarLabel && model.company.calendarUrl)) { ?>
         <div style="margin-top:10px;font-size:13px;">
-        <? if (model.company.tagline) { ?>
-          <span style="color:#1d1d1b;"><?= model.company.tagline ?></span>
-        <? } ?>
-        <? if (model.company.tagline && model.company.calendarLabel && model.company.calendarUrl) { ?>
-          <span style="color:#c9b797;"> | </span>
-        <? } ?>
-        <? if (model.company.calendarLabel && model.company.calendarUrl) { ?>
-          <a href="<?= model.company.calendarUrl ?>" style="color:#0f5a52;text-decoration:none;font-weight:700;"><?= model.company.calendarLabel ?></a>
-        <? } ?>
+          <? if (model.company.tagline) { ?>
+            <span style="color:<?= model.company.brandStyle.ctaMagenta ?>;font-weight:700;"><?= model.company.tagline ?></span>
+          <? } ?>
+          <? if (model.company.tagline && model.company.calendarLabel && model.company.calendarUrl) { ?>
+            <span style="color:<?= model.company.brandStyle.divider ?>;"> | </span>
+          <? } ?>
+          <? if (model.company.calendarLabel && model.company.calendarUrl) { ?>
+            <a href="<?= model.company.calendarUrl ?>" style="color:<?= model.company.brandStyle.primaryBlue ?>;text-decoration:none;font-weight:400;"><?= model.company.calendarLabel ?></a>
+          <? } ?>
         </div>
       <? } ?>
     </td>
