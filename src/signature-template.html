@@ -16,7 +16,7 @@
       <? } ?>
       <? if (model.company.companyWebsiteUrl) { ?>
         <div style="margin-top:4px;font-size:13px;">
-          <a href="<?= model.company.companyWebsiteUrl ?>" style="color:#0f5a52;text-decoration:none;"><?= model.company.companyWebsiteUrl ?></a>
+          <a href="<?= model.company.companyWebsiteUrl ?>" style="color:#0f5a52;text-decoration:none;"><?= model.company.websiteLabel || model.company.companyWebsiteUrl ?></a>
         </div>
       <? } ?>
       <div style="margin-top:12px;font-size:13px;">
