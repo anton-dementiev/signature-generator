@@ -3,7 +3,6 @@ function buildSignatureModel_(formData) {
   var jobTitle = sanitizeText_(formData.jobTitle);
   var companyName = sanitizeText_(formData.companyName) || sanitizeText_(COMPANY_CONFIG.companyName);
   var companyWebsiteUrl = sanitizeUrl_(formData.companyWebsiteUrl || COMPANY_CONFIG.companyWebsiteUrl);
-  var websiteLabel = sanitizeText_(formData.websiteLabel) || sanitizeText_(COMPANY_CONFIG.websiteLabel);
   var tagline = sanitizeText_(formData.tagline) || sanitizeText_(COMPANY_CONFIG.tagline);
   var calendarLabel = sanitizeText_(formData.calendarLabel) || sanitizeText_(COMPANY_CONFIG.calendarLabel);
   var calendarUrl = sanitizeUrl_(formData.calendarUrl || COMPANY_CONFIG.calendarUrl);
@@ -12,7 +11,6 @@ function buildSignatureModel_(formData) {
     company: Object.assign({}, COMPANY_CONFIG, {
       companyName: companyName,
       companyWebsiteUrl: companyWebsiteUrl,
-      websiteLabel: websiteLabel,
       tagline: tagline,
       calendarLabel: calendarLabel,
       calendarUrl: calendarUrl
