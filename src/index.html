@@ -15,10 +15,6 @@
           Generate a Gmail-ready HTML signature from a single company template with centrally managed branding.
         </p>
 
-        <? if (config.assets.warning) { ?>
-          <div class="notice warning"><?= config.assets.warning ?></div>
-        <? } ?>
-
         <form id="signature-form" class="signature-form">
           <? for (var i = 0; i < config.fields.length; i += 1) { ?>
             <? var field = config.fields[i]; ?>

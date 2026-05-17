@@ -3,9 +3,8 @@ var COMPANY_CONFIG = Object.freeze({
   companyWebsiteUrl: "https://example.com",
   ctaText: "Book a call",
   ctaUrl: "https://example.com/book",
-  assetsFolderName: "assets",
-  logoFileName: "logo.png",
-  bannerFileName: "banner.png",
+  logoUrl: "https://i.postimg.cc/DZSQ0c4X/Ru-Store-Icon.png",
+  bannerUrl: "",
   templateName: "default-minimal"
 });
 
