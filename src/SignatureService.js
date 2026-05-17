@@ -6,6 +6,7 @@ function buildSignatureModel_(formData) {
   var tagline = sanitizeText_(formData.tagline) || sanitizeText_(COMPANY_CONFIG.tagline);
   var calendarLabel = sanitizeText_(formData.calendarLabel) || sanitizeText_(COMPANY_CONFIG.calendarLabel);
   var calendarUrl = sanitizeUrl_(formData.calendarUrl || COMPANY_CONFIG.calendarUrl);
+  var includeConfidentiality = sanitizeBoolean_(formData.includeConfidentiality);
   var includeOptOut = sanitizeBoolean_(formData.includeOptOut);
 
   return {
@@ -25,6 +26,7 @@ function buildSignatureModel_(formData) {
       email: sanitizeText_(formData.email),
       phone: sanitizeText_(formData.phone),
       linkedinUrl: sanitizeUrl_(formData.linkedinUrl),
+      includeConfidentiality: includeConfidentiality,
       includeOptOut: includeOptOut
     }
   };

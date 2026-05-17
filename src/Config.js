@@ -4,6 +4,7 @@ var COMPANY_CONFIG = Object.freeze({
   tagline: "",
   calendarLabel: "Book A Call",
   calendarUrl: "https://calendly.com/anton-dementyev/30min",
+  confidentialityText: "This message may contain confidential information intended only for the named recipient.",
   optOutText: "If you prefer not to receive further communication from me, simply reply \"no\" to this email.",
   logoUrl: "https://i.postimg.cc/DZSQ0c4X/Ru-Store-Icon.png",
   bannerUrl: "",
@@ -30,5 +31,6 @@ var SIGNATURE_FIELDS = Object.freeze([
   { key: "tagline", label: "Tagline", required: false, defaultValue: "Bring your game in front of 70 million players!" },
   { key: "calendarLabel", label: "Calendar label", required: false, defaultValue: COMPANY_CONFIG.calendarLabel },
   { key: "calendarUrl", label: "Calendar URL", required: false, type: "url", defaultValue: COMPANY_CONFIG.calendarUrl },
+  { key: "includeConfidentiality", label: "Include confidentiality notice", required: false, type: "checkbox", defaultChecked: false },
   { key: "includeOptOut", label: "Include opt-out line", required: false, type: "checkbox", defaultChecked: false }
 ]);
