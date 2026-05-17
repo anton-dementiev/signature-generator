@@ -4,6 +4,7 @@ var COMPANY_CONFIG = Object.freeze({
   tagline: "",
   calendarLabel: "Book A Call",
   calendarUrl: "https://calendly.com/anton-dementyev/30min",
+  optOutText: "If you prefer not to receive further communication from me, simply reply \"no\" to this email.",
   logoUrl: "https://i.postimg.cc/DZSQ0c4X/Ru-Store-Icon.png",
   bannerUrl: "",
   brandStyle: {
@@ -28,5 +29,6 @@ var SIGNATURE_FIELDS = Object.freeze([
   { key: "linkedinUrl", label: "LinkedIn URL", required: false, type: "url", defaultValue: "https://www.linkedin.com/in/antondementiev/" },
   { key: "tagline", label: "Tagline", required: false, defaultValue: "Bring your game in front of 70 million players!" },
   { key: "calendarLabel", label: "Calendar label", required: false, defaultValue: COMPANY_CONFIG.calendarLabel },
-  { key: "calendarUrl", label: "Calendar URL", required: false, type: "url", defaultValue: COMPANY_CONFIG.calendarUrl }
+  { key: "calendarUrl", label: "Calendar URL", required: false, type: "url", defaultValue: COMPANY_CONFIG.calendarUrl },
+  { key: "includeOptOut", label: "Include opt-out line", required: false, type: "checkbox", defaultChecked: false }
 ]);

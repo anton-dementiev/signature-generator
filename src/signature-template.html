@@ -57,4 +57,11 @@
       </td>
     </tr>
   <? } ?>
+  <? if (model.person.includeOptOut && model.company.optOutText) { ?>
+    <tr>
+      <td colspan="2" style="padding-top:10px;font-size:11px;line-height:1.35;color:#888888;">
+        <?= model.company.optOutText ?>
+      </td>
+    </tr>
+  <? } ?>
 </table>

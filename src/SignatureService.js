@@ -6,6 +6,7 @@ function buildSignatureModel_(formData) {
   var tagline = sanitizeText_(formData.tagline) || sanitizeText_(COMPANY_CONFIG.tagline);
   var calendarLabel = sanitizeText_(formData.calendarLabel) || sanitizeText_(COMPANY_CONFIG.calendarLabel);
   var calendarUrl = sanitizeUrl_(formData.calendarUrl || COMPANY_CONFIG.calendarUrl);
+  var includeOptOut = sanitizeBoolean_(formData.includeOptOut);
 
   return {
     company: Object.assign({}, COMPANY_CONFIG, {
@@ -23,7 +24,8 @@ function buildSignatureModel_(formData) {
       titleLine: buildTitleLine_(jobTitle, companyName),
       email: sanitizeText_(formData.email),
       phone: sanitizeText_(formData.phone),
-      linkedinUrl: sanitizeUrl_(formData.linkedinUrl)
+      linkedinUrl: sanitizeUrl_(formData.linkedinUrl),
+      includeOptOut: includeOptOut
     }
   };
 }
@@ -57,4 +59,8 @@ function buildTitleLine_(jobTitle, companyName) {
   }
 
   return jobTitle || companyName || "";
+}
+
+function sanitizeBoolean_(value) {
+  return value === true || value === "true" || value === "on";
 }

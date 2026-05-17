@@ -17,6 +17,17 @@
         <form id="signature-form" class="signature-form">
           <? for (var i = 0; i < config.fields.length; i += 1) { ?>
             <? var field = config.fields[i]; ?>
+            <? if (field.type === 'checkbox') { ?>
+            <label class="field field-checkbox">
+              <input
+                name="<?= field.key ?>"
+                type="checkbox"
+                value="true"
+                <?= field.defaultChecked ? 'checked' : '' ?>
+              >
+              <span><?= field.label ?></span>
+            </label>
+            <? } else { ?>
             <? var inputType = field.type === 'url' ? 'text' : (field.type || 'text'); ?>
             <label class="field">
               <span><?= field.label ?><? if (field.required) { ?> *<? } ?></span>
@@ -28,6 +39,7 @@
                 <?= field.required ? 'required' : '' ?>
               >
             </label>
+            <? } ?>
           <? } ?>
           <div class="actions">
             <button type="submit">Generate signature</button>
