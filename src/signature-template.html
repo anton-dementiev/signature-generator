@@ -1,31 +1,43 @@
-<table cellpadding="0" cellspacing="0" border="0" style="font-family:Arial,Helvetica,sans-serif;color:#1d1d1b;line-height:1.35;">
+<table cellpadding="0" cellspacing="0" border="0" style="font-family:'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:13px;color:#333333;line-height:1.5;">
   <tr>
-    <td style="padding:0 24px 0 0;vertical-align:top;">
+    <td style="padding:0 16px 0 0;vertical-align:top;">
       <? if (model.assets.logoUrl) { ?>
         <img
           src="<?= model.assets.logoUrl ?>"
           alt="<?= model.company.companyName ?>"
-          style="display:block;max-width:140px;height:auto;border:0;"
+          width="60"
+          style="display:block;width:60px;max-width:60px;height:auto;border:0;"
         >
       <? } ?>
     </td>
     <td style="vertical-align:top;min-width:280px;">
-      <div style="font-size:20px;font-weight:700;color:#0f5a52;"><?= model.person.fullName ?></div>
-      <? if (model.person.titleLine) { ?>
-        <div style="font-size:14px;color:#5a554d;"><?= model.person.titleLine ?></div>
-      <? } ?>
-      <? if (model.company.companyWebsiteUrl) { ?>
-        <div style="margin-top:4px;font-size:13px;">
-          <a href="<?= model.company.companyWebsiteUrl ?>" style="color:#0f5a52;text-decoration:none;"><?= model.company.websiteLabel || model.company.companyWebsiteUrl ?></a>
+      <div style="font-size:15px;font-weight:600;color:#000000;"><?= model.person.fullName ?></div>
+      <? if (model.person.jobTitle || model.person.companyName) { ?>
+        <div>
+          <? if (model.person.jobTitle) { ?>
+            <span style="color:#333333;"><?= model.person.jobTitle ?></span>
+          <? } ?>
+          <? if (model.person.jobTitle && model.person.companyName) { ?>
+            <span>, </span>
+          <? } ?>
+          <? if (model.person.companyName) { ?>
+            <span style="font-size:14px;font-weight:600;color:#000000;"><?= model.person.companyName ?></span>
+          <? } ?>
         </div>
       <? } ?>
-      <div style="margin-top:12px;font-size:13px;">
+      <div style="border-top:1px solid #dddddd;margin:8px 0;width:100%;"></div>
+      <div style="color:#666666;font-size:12px;">
+        <? if (model.company.companyWebsiteUrl) { ?>
+          <div>
+            <a href="<?= model.company.companyWebsiteUrl ?>" style="color:#0f5a52;text-decoration:none;"><?= model.company.websiteLabel || model.company.companyWebsiteUrl ?></a>
+          </div>
+        <? } ?>
         <div><a href="mailto:<?= model.person.email ?>" style="color:#1d1d1b;text-decoration:none;"><?= model.person.email ?></a></div>
         <? if (model.person.phone) { ?><div><?= model.person.phone ?></div><? } ?>
         <? if (model.person.linkedinUrl) { ?><div><a href="<?= model.person.linkedinUrl ?>" style="color:#0f5a52;text-decoration:none;">LinkedIn</a></div><? } ?>
       </div>
       <? if (model.company.tagline || (model.company.calendarLabel && model.company.calendarUrl)) { ?>
-        <div style="margin-top:14px;font-size:13px;">
+        <div style="margin-top:10px;font-size:13px;">
         <? if (model.company.tagline) { ?>
           <span style="color:#1d1d1b;"><?= model.company.tagline ?></span>
         <? } ?>
