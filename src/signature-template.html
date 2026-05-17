@@ -14,17 +14,29 @@
       <? if (model.person.titleLine) { ?>
         <div style="font-size:14px;color:#5a554d;"><?= model.person.titleLine ?></div>
       <? } ?>
+      <? if (model.company.companyWebsiteUrl) { ?>
+        <div style="margin-top:4px;font-size:13px;">
+          <a href="<?= model.company.companyWebsiteUrl ?>" style="color:#0f5a52;text-decoration:none;"><?= model.company.companyWebsiteUrl ?></a>
+        </div>
+      <? } ?>
       <div style="margin-top:12px;font-size:13px;">
         <div><a href="mailto:<?= model.person.email ?>" style="color:#1d1d1b;text-decoration:none;"><?= model.person.email ?></a></div>
         <? if (model.person.phone) { ?><div><?= model.person.phone ?></div><? } ?>
         <? if (model.person.linkedinUrl) { ?><div><a href="<?= model.person.linkedinUrl ?>" style="color:#0f5a52;text-decoration:none;">LinkedIn</a></div><? } ?>
-        <? if (model.person.calendarUrl) { ?><div><a href="<?= model.person.calendarUrl ?>" style="color:#0f5a52;text-decoration:none;">Book time</a></div><? } ?>
       </div>
-      <div style="margin-top:14px;font-size:13px;">
-        <a href="<?= model.company.companyWebsiteUrl ?>" style="color:#1d1d1b;text-decoration:none;"><?= model.company.companyName ?></a>
-        <span style="color:#c9b797;"> | </span>
-        <a href="<?= model.company.ctaUrl ?>" style="color:#0f5a52;text-decoration:none;font-weight:700;"><?= model.company.ctaText ?></a>
-      </div>
+      <? if (model.company.tagline || (model.company.calendarLabel && model.company.calendarUrl)) { ?>
+        <div style="margin-top:14px;font-size:13px;">
+        <? if (model.company.tagline) { ?>
+          <span style="color:#1d1d1b;"><?= model.company.tagline ?></span>
+        <? } ?>
+        <? if (model.company.tagline && model.company.calendarLabel && model.company.calendarUrl) { ?>
+          <span style="color:#c9b797;"> | </span>
+        <? } ?>
+        <? if (model.company.calendarLabel && model.company.calendarUrl) { ?>
+          <a href="<?= model.company.calendarUrl ?>" style="color:#0f5a52;text-decoration:none;font-weight:700;"><?= model.company.calendarLabel ?></a>
+        <? } ?>
+        </div>
+      <? } ?>
     </td>
   </tr>
   <? if (model.assets.bannerUrl) { ?>

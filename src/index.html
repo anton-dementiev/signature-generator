@@ -9,20 +9,22 @@
   <body>
     <main class="app-shell">
       <section class="panel panel-form">
-        <div class="eyebrow">Google Apps Script</div>
-        <h1>Corporate Signature Generator</h1>
+        <h1>Signature Generator</h1>
         <p class="intro">
-          Generate a Gmail-ready HTML signature from a single company template with centrally managed branding.
+          Generate a Gmail-ready HTML signature
         </p>
 
         <form id="signature-form" class="signature-form">
           <? for (var i = 0; i < config.fields.length; i += 1) { ?>
             <? var field = config.fields[i]; ?>
+            <? var inputType = field.type === 'url' ? 'text' : (field.type || 'text'); ?>
             <label class="field">
               <span><?= field.label ?><? if (field.required) { ?> *<? } ?></span>
               <input
                 name="<?= field.key ?>"
-                type="<?= field.key === 'email' ? 'email' : 'text' ?>"
+                type="<?= inputType ?>"
+                value="<?= field.defaultValue || '' ?>"
+                <?= field.type === 'url' ? 'inputmode="url" autocapitalize="off" spellcheck="false"' : '' ?>
                 <?= field.required ? 'required' : '' ?>
               >
             </label>
@@ -37,8 +39,7 @@
       <section class="panel panel-preview">
         <div class="preview-header">
           <div>
-            <div class="eyebrow">Preview</div>
-            <h2>Inline HTML output</h2>
+            <h2>Preview</h2>
           </div>
           <button type="button" class="secondary" id="copy-button">Copy HTML</button>
         </div>

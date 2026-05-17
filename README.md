@@ -8,8 +8,8 @@ Clasp-based Google Apps Script web app scaffold for generating corporate email s
 - Access model: anyone with the link.
 - Single default minimalist signature template.
 - Global company branding is hardcoded in source for the first version.
-- User-editable fields: `fullName`, `jobTitle`, `companyName`, `email`, optional `phone`, optional `linkedinUrl`, optional `calendarUrl`.
-- Global company settings: `companyName`, `companyWebsiteUrl`, `ctaText`, `ctaUrl`, `logoUrl`, optional `bannerUrl`.
+- User-editable fields: `fullName`, `jobTitle`, `companyName`, `companyWebsiteUrl`, `email`, optional `phone`, optional `linkedinUrl`, optional `tagline`, optional `calendarLabel`, optional `calendarUrl`.
+- Global company settings: `companyName`, `companyWebsiteUrl`, optional `tagline`, optional `calendarLabel`, optional `calendarUrl`, `logoUrl`, optional `bannerUrl`.
 - Logo and banner should be hosted at stable public HTTPS URLs configured in source.
 - Output modes:
   - on-page live preview
