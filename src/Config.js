@@ -6,7 +6,7 @@ var COMPANY_CONFIG = Object.freeze({
   calendarUrl: "https://calendly.com/anton-dementyev/30min",
   confidentialityText: "This message may contain confidential information intended only for the named recipient.",
   optOutText: "If you prefer not to receive further communication from me, simply reply \"no\" to this email.",
-  logoUrl: "https://i.postimg.cc/DZSQ0c4X/Ru-Store-Icon.png",
+  logoUrl: "https://anton-dementiev.github.io/email-signature-hosted/logo.png",
   bannerUrl: "",
   brandStyle: {
     primaryBlue: "#0077FF",
